@@ -30,7 +30,7 @@ void InsertionSort(int n, int mass[])
     {
         newElement = mass[i];
         location = i - 1;
-        while(location >= 0 && mass[location]/* 9 */ > newElement/* 87 */)
+        while(location >= 0 && mass[location] > newElement)
         {
             mass[location+1] = mass[location];
             location--;

@@ -6,17 +6,22 @@
 // выбирается из одних и тех же соображений. Как вы уже догадались, функция сортировки 
 // является рекурсивной функцией (строки кода 27 и 29).
 
-void hoarasort(double* a, int first, int last)
+void hoarasort(double* a, int first/* 0 */, int last/* 3 */)
 {
- 
-int i = first, j = last;
-double tmp, x = a[(first + last) / 2];
- 
+ // 3 4 5 11 92 3
+ // 3 4 3 11 92 5
+ // 
+ // 3 4 3 5 92 11 
+ // 3 3 4 5 92 11 
+int i = first, j = last;// 0 , 3
+double tmp, x = a[(first + last) / 2];// 5 |   92 |  4
+
+
 do {
    while (a[i] < x)
-     i++;
+     i++;// 3 | 2
    while (a[j] > x)
-     j--;
+     j--;// 2 | 1
  
    if (i <= j) 
    {
@@ -32,9 +37,9 @@ do {
 } while (i <= j);
  
 if (i < last)
-   hoarasort(a, i, last);
+   hoarasort(a, i, last);// a, 3, 5 | 
 if (first < j)
-   hoarasort(a, first,j);
+   hoarasort(a, first,j);// a, 0, 3
 }
 
 // void main() {
